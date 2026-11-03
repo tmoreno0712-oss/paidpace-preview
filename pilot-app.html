@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PaidPace Pilot Workspace — Private Invoice Tracker</title>
+<meta name="description" content="Track invoices locally, mark payments and prepare polite follow-up drafts. Private on this browser, no automatic email or subscription.">
+<meta name="robots" content="noindex,nofollow">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<link rel="stylesheet" href="/pilot-app.css">
+</head><body>
+<header class="topbar"><div class="top-inner"><a class="brand" href="/">paid<span>pace</span></a><div class="navlinks"><a href="/reminder-generator.html">Free reminder generator</a><a href="/pilot.html">Founding pilot</a></div></div></header>
+<main class="shell">
+<div class="headline"><span class="eyebrow">Free early pilot · $0</span><h1>Your invoices. <em>One simple view.</em></h1><p>Organize outstanding invoices, mark payments, and draft respectful reminders. No billing or automatic sending.</p></div>
+<div class="warning"><strong>Important privacy note:</strong> This pilot uses your browser only. In private mode, invoices are encrypted with your passphrase before saving to this device. There's no account, cloud sync, or recovery service. If you clear browser data, lose your passphrase, or switch devices without a backup, your records may be lost. Start with fictional invoice data. Do not add bank details or sensitive customer records.</div>
+<section id="gate" class="card gate" aria-labelledby="gateTitle">
+<h2 id="gateTitle">Choose how to try PaidPace</h2><p class="subtext">Explore the demo instantly, or create an encrypted workspace saved on this browser.</p>
+<div class="gate-grid">
+<div class="gate-choice"><h3>Explore with examples</h3><p>Open a working sample with fictional invoices. Nothing is saved.</p><button type="button" id="demoBtn" class="button green">Try instant demo</button></div>
+<div class="gate-choice"><h3>Your private workspace</h3><p>Choose a passphrase (minimum 10 characters). This is not an online account.</p>
+<label for="passphrase">Passphrase</label><input id="passphrase" type="password" autocomplete="off" minlength="10" maxlength="128" placeholder="10 or more characters">
+<label for="confirmPass">Confirm passphrase (new workspaces only)</label><input id="confirmPass" type="password" autocomplete="off" minlength="10" maxlength="128" placeholder="Enter again to create">
+<div class="button-row"><button id="createVault" type="button" class="button green">Create workspace</button><button id="unlockVault" type="button" class="button secondary">Unlock existing</button></div>
+<p id="vaultHint" class="micro">If you've previously used this browser, choose “Unlock existing.”</p></div>
+</div><p id="gateFeedback" class="feedback" role="status"></p>
+</section>
+<section id="workspace" hidden>
+<div class="workspace-controls card"><div><h2 id="modeTitle">Invoice workspace</h2><p id="modeDesc" class="subtext"></p></div><div class="button-row"><button id="addBtn" type="button" class="button green">+ Add invoice</button><button id="csvBtn" type="button" class="button secondary">Export CSV</button><button id="backupBtn" type="button" class="button secondary">Encrypted backup</button><button id="lockBtn" type="button" class="button subtle">Close workspace</button></div></div>
+<div id="appFeedback" class="feedback" role="status" aria-live="polite"></div>
+<div class="stats">
+<div class="card stat"><small>Unpaid invoices</small><strong id="unpaidCount">0</strong><span>Open balances</span></div>
+<div class="card stat"><small>Total outstanding</small><strong id="totalUnpaid">$0</strong><span>Based on invoices you entered</span></div>
+<div class="card stat"><small>Past due</small><strong id="overdueCount">0</strong><span>Unpaid, due before today</span></div>
+<div class="card stat"><small>Due in 7 days</small><strong id="soonCount">0</strong><span>Unpaid and not yet overdue</span></div>
+</div>
+<section id="editor" class="card editor" hidden aria-labelledby="editorTitle"><div class="sectionhead"><h2 id="editorTitle">Add an invoice</h2><button id="cancelBtn" type="button" class="button subtle">Cancel</button></div>
+<form id="invoiceForm">
+<div class="formgrid">
+<div><label for="ref">Invoice number</label><input name="reference" id="ref" required maxlength="80" placeholder="INV-001"></div>
+<div><label for="client">Client / business name</label><input name="client" id="client" required maxlength="100" placeholder="Example Client"></div>
+<div><label for="email">Client email (optional)</label><input name="email" id="email" type="email" maxlength="150" placeholder="billing@example.com"></div>
+<div><label for="amount">Amount (USD)</label><input name="amount" id="amount" type="number" required min="0.01" max="100000000" step="0.01" placeholder="450.00"></div>
+<div><label for="due">Due date</label><input name="due" id="due" type="date" required></div>
+<div><label for="status">Status</label><select name="status" id="status"><option value="unpaid">Unpaid</option><option value="paid">Paid</option></select></div>
+<div class="full"><label for="notes">Internal notes (optional)</label><textarea name="notes" id="notes" maxlength="500" rows="2" placeholder="For your reference only"></textarea></div>
+</div><p class="micro">Everything is kept only in this browser. Never enter confidential bank details. No payment requests or emails are sent.</p><button type="submit" id="saveBtn" class="button green">Save invoice</button></form>
+</section>
+<section class="card listpanel"><div class="sectionhead"><div><h2>Invoices</h2><p class="subtext">Change payment status manually. A draft reminder is never sent automatically.</p></div><div class="filterbar"><input id="search" aria-label="Search invoices" placeholder="Search invoices"><select id="filter" aria-label="Filter invoices"><option value="all">All invoices</option><option value="unpaid">Unpaid</option><option value="overdue">Overdue</option><option value="paid">Paid</option></select></div></div>
+<div id="invoiceList" class="invoice-list" aria-live="polite"></div><p id="emptyList" class="empty" hidden>No invoices match your filters. Add one to get started.</p></section>
+<section id="draftPanel" class="card draft" hidden><div class="sectionhead"><h2>Manual reminder draft</h2><button id="closeDraft" class="button subtle" type="button">Close</button></div>
+<p class="subtext">Edit this before you send it from your own email client. PaidPace does not send emails or confirm payments.</p>
+<label for="draftTone">Reminder tone</label><select id="draftTone"><option value="warm">Warm & friendly</option><option value="direct">Professional & clear</option><option value="firm">Firm but respectful</option></select>
+<label for="draftText">Editable message</label><textarea id="draftText" rows="14" spellcheck="true"></textarea>
+<div class="button-row"><button id="copyDraft" type="button" class="button green">Copy message</button><span id="draftFeedback" class="micro" role="status"></span></div></section>
+<div class="workspace-end"><p class="micro">Private workspaces encrypt data using Web Crypto (AES-GCM). This does not replace a backed-up professional invoicing system.</p><div class="button-row"><label for="restoreFile" class="button secondary file-button">Restore encrypted backup</label><input type="file" id="restoreFile" accept=".json,application/json" hidden><button id="eraseBtn" type="button" class="button danger">Erase this workspace</button></div></div>
+</section>
+<div class="cta card"><div><h2>Want the full PaidPace experience?</h2><p>We're recruiting a small group to test a fuller, cloud-backed product with their input. The production app and subscriptions aren't live yet.</p></div><a class="button green" href="/pilot.html">Join the free pilot interest list</a></div>
+</main>
+<footer><a href="/privacy.html">Privacy notice</a> · <a href="/reminder-generator.html">Free reminder tool</a> · © 2026 PaidPace</footer>
+<script src="/pilot-app.js" defer></script>
+</body></html>
