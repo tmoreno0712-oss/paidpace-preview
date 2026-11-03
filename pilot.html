@@ -1,49 +1,88 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Join the PaidPace founding pilot: a simpler way for service businesses to track unpaid invoices and prepare friendly follow-ups.">
-<title>PaidPace · Founding Pilot</title>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="index,follow">
+<meta name="description" content="Help shape PaidPace, the simple way to stay on top of overdue invoices. Founding pilot interest list coming soon.">
+<title>PaidPace — Founding Pilot</title>
 <style>
-:root{--ink:#17343b;--teal:#087d75;--mint:#def6eb;--bg:#f7f9f6;--muted:#657b7e;--line:#dce7e2;--white:#fff}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,'Segoe UI',Arial,sans-serif;line-height:1.6}
-a{color:inherit;text-decoration:none}
-nav{display:flex;align-items:center;justify-content:space-between;gap:20px;max-width:1060px;padding:25px 25px;margin:auto}
-.brand{font-size:24px;font-weight:900;letter-spacing:-1.3px;color:#163a3b}.brand span{color:var(--teal)}
-.navlink{font-size:13px;font-weight:650;color:#40565b}.navlink:hover{text-decoration:underline}
-main{max-width:1060px;margin:0 auto;padding:55px 25px 75px}.eyebrow{display:inline-block;font-weight:750;font-size:12px;letter-spacing:1.3px;background:var(--mint);padding:8px 12px;border-radius:99px;color:#12766c}
-.hero{max-width:760px}h1{font-size:clamp(36px,6vw,70px);line-height:1.13;letter-spacing:-2.5px;margin:22px 0 19px}h1 em{font-style:normal;color:var(--teal)}.lead{font-size:20px;color:#536a6d;max-width:660px;margin:0 0 25px}
-.button{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:0 24px;border-radius:12px;background:var(--teal);color:white;font-weight:800;box-shadow:0 10px 25px #057b711c}.button:hover{background:#06645e}
-.hint{font-size:13px;color:var(--muted);margin-top:14px}
-.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px;margin-top:55px}.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px;box-shadow:0 6px 18px #144a4b08}
-.num{font-size:12px;font-weight:800;letter-spacing:1px;color:var(--teal)}h2{font-size:19px;letter-spacing:-.4px;margin:10px 0 8px}p{margin:0}.card p{font-size:14px;color:#63757b}
-.bottom{display:flex;align-items:flex-start;justify-content:space-between;gap:30px;margin-top:45px;padding:34px;background:#e9f5ee;border-radius:20px}
-.bottom h2{font-size:24px;margin:0 0 9px}.bottom p{color:#547069;font-size:15px;max-width:660px}
-footer{max-width:1060px;margin:20px auto 0;padding:16px 25px 32px;font-size:12px;color:#768985;border-top:1px solid var(--line)}
-@media(max-width:720px){main{padding-top:20px}.cards{grid-template-columns:1fr;margin-top:35px}.bottom{display:block}.bottom .button{margin-top:22px}h1{letter-spacing:-1.2px}.lead{font-size:17px}}
+:root{--dark:#123739;--deep:#0c3034;--green:#08796d;--mint:#dcf2e6;--text:#284248;--grey:#627b7d;--bg:#f7faf7;--stroke:#dae7e1;--white:#fff}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--dark);background:var(--bg);line-height:1.55}
+a{color:inherit;text-decoration:none}a:hover{text-decoration:underline}
+header{max-width:1100px;margin:auto;padding:26px 24px;display:flex;justify-content:space-between;align-items:center;gap:20px}
+.logo{font-size:25px;font-weight:850;letter-spacing:-1.35px}.logo span{color:var(--green)}
+header nav a{font-size:14px;color:#4c6766;font-weight:650}
+main{max-width:1100px;margin:auto;padding:62px 24px 100px}
+.layout{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(350px,.85fr);gap:72px;align-items:start}
+.pill{display:inline-block;font-size:11px;letter-spacing:1.6px;font-weight:850;text-transform:uppercase;color:var(--green);border-radius:99px;background:#e5f5eb;padding:9px 15px}
+h1{font-size:clamp(43px,5.5vw,73px);line-height:1.085;letter-spacing:-3.5px;margin:28px 0 23px;font-weight:850}
+h1 em{color:var(--green);font-style:normal}
+.lead{font-size:19px;line-height:1.66;color:#526e70;max-width:620px}
+.points{display:grid;gap:23px;margin-top:45px}
+.point{display:flex;align-items:flex-start;gap:16px}
+.dot{display:grid;place-items:center;width:37px;height:37px;border-radius:12px;background:var(--mint);color:var(--green);font-weight:900;flex:none}
+.point strong{font-size:15px}.point p{color:#667f7f;font-size:14px;margin:3px 0 0}
+.panel{background:white;padding:32px;border:1px solid var(--stroke);border-radius:22px;box-shadow:0 16px 35px #0c3f3510}
+.panel h2{font-size:24px;letter-spacing:-.8px;line-height:1.2;margin:0 0 8px}
+.subtitle{font-size:14px;color:var(--grey);margin:0 0 23px}
+.status{padding:14px 15px;border-radius:12px;background:#fef7e6;border:1px solid #f4e6be;color:#765b20;font-size:13px;margin-bottom:20px}
+label{display:block;font-size:13px;font-weight:700;margin:17px 0 6px;color:#284349}
+input,select,textarea{width:100%;border:1px solid #cedcd8;border-radius:10px;padding:12px 13px;font:inherit;font-size:14px;background:#fff;color:#294b50}
+input:focus,select:focus,textarea:focus{outline:2px solid #7bc4b1;outline-offset:1px}
+fieldset{border:0;padding:0;margin:0}
+.check{display:flex;gap:9px;align-items:flex-start;margin-top:18px}
+.check input{width:18px;height:18px;flex:none;margin-top:3px}
+.check label{margin:0;font-weight:400;line-height:1.5}
+button{margin-top:18px;background:var(--green);color:#fff;width:100%;border:0;border-radius:11px;padding:15px;cursor:pointer;font:inherit;font-size:15px;font-weight:800}
+button[disabled]{cursor:not-allowed;opacity:.46}
+.note{font-size:12px;color:#7b8e8e;margin-top:12px;line-height:1.7}
+#feedback{font-size:13px;min-height:18px}
+footer{max-width:1100px;margin:auto;padding:25px 24px 40px;border-top:1px solid var(--stroke);color:#80928d;font-size:12px}
+@media(max-width:840px){.layout{grid-template-columns:1fr;gap:40px}main{padding-top:28px}.panel{padding:23px}h1{letter-spacing:-1.9px}}
 </style>
 </head>
 <body>
-<nav><a class="brand" href="/">paid<span>pace</span></a><a class="navlink" href="/">Explore the design demo →</a></nav>
-<main>
-<div class="hero">
-<span class="eyebrow">FOUNDING PILOT · APPLICATIONS OPEN</span>
-<h1>Stop losing time <em>chasing invoices.</em></h1>
-<p class="lead">We're inviting a small group of service-business owners to help shape PaidPace—a lightweight place to track unpaid invoices and prepare respectful payment follow-ups.</p>
-<span class="button" style="opacity:.7;cursor:default">Applications opening soon</span>
-<p class="hint">We’re setting up a dedicated business inbox and secure application form before accepting requests.</p>
+<header><a class="logo" href="/">paid<span>pace</span></a><nav><a href="/">Explore the design preview</a></nav></header>
+<main><div class="layout">
+<section>
+<span class="pill">Founding Pilot · Preparing to open</span>
+<h1>Spend less time <em>chasing invoices.</em></h1>
+<p class="lead">A simpler way for freelancers and small service businesses to stay on top of overdue invoices and prepare polite, effective payment follow-ups.</p>
+<div class="points">
+<div class="point"><span class="dot">01</span><div><strong>See what's overdue</strong><p>Keep track of invoices and know who needs a friendly reminder.</p></div></div>
+<div class="point"><span class="dot">02</span><div><strong>Follow up professionally</strong><p>Draft thoughtful messages without starting from scratch every time.</p></div></div>
+<div class="point"><span class="dot">03</span><div><strong>Shape the tool before launch</strong><p>Our founding pilot will be free. We're looking for honest feedback, not credit card numbers.</p></div></div>
 </div>
-<section class="cards" aria-label="Pilot details">
-<div class="card"><span class="num">01 · TRACK</span><h2>One view of unpaid invoices</h2><p>Know which customers have outstanding invoices and what needs your attention.</p></div>
-<div class="card"><span class="num">02 · FOLLOW UP</span><h2>Friendly reminder drafts</h2><p>Prepare professional follow-ups, with optional automation planned for approved reminders.</p></div>
-<div class="card"><span class="num">03 · SHAPE THE PRODUCT</span><h2>Free pilot access</h2><p>Help us test the workflow and tell us what's missing before we launch paid subscriptions.</p></div>
 </section>
-<div class="bottom">
-<div><h2>We want feedback, not financial documents.</h2><p>This is an early-access request, not a live account signup. Please don't send bank information, invoice files, customer records, or payment credentials. We're preparing the production app for a limited pilot. No applications are being collected on this preview page yet.</p></div>
-<span class="button" style="opacity:.7;cursor:default">Waitlist setup pending</span>
-</div>
-</main>
-<footer>PaidPace is an early-stage software project. Early access is not yet available. No promise of payment collection results. We will not request your customer's financial records at this stage. © 2026 PaidPace.</footer>
-</body>
-</html>
+<aside class="panel" aria-labelledby="formTitle">
+<h2 id="formTitle">Join the founding pilot</h2>
+<p class="subtitle">We're preparing a free interest list for business owners. No financial information required.</p>
+<div id="status" class="status" role="status">Applications aren't being collected yet. We're configuring secure delivery of interest forms.</div>
+<form id="waitlist" action="https://api.web3forms.com/submit" method="POST" novalidate>
+<input type="hidden" name="access_key" value="WEB3FORMS_KEY_NOT_CONFIGURED">
+<input type="hidden" name="subject" value="PaidPace founding pilot interest">
+<input type="hidden" name="from_name" value="PaidPace Pilot">
+<input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+<fieldset id="inputs" disabled>
+<label for="name">Your name</label><input id="name" name="name" autocomplete="name" minlength="2" maxlength="100" required placeholder="Name">
+<label for="email">Email address</label><input id="email" type="email" name="email" autocomplete="email" required placeholder="you@business.com">
+<label for="business">What type of business?</label>
+<select id="business" name="business_type" required><option value="">Choose your business type</option><option>Freelancer / consultant</option><option>Home service / contractor</option><option>Creative agency / studio</option><option>Cleaning / maintenance</option><option>Other small business</option></select>
+<label for="volume">About how many invoices do you send each month?</label>
+<select id="volume" name="invoice_volume" required><option value="">Select a range</option><option>1–10</option><option>11–30</option><option>31–100</option><option>100+</option></select>
+<label for="tracking">How do you currently track unpaid invoices?</label>
+<select id="tracking" name="current_method" required><option value="">Select one</option><option>Spreadsheet</option><option>Accounting software</option><option>Manual email / notes</option><option>No consistent system</option><option>Other</option></select>
+<div class="check"><input type="checkbox" id="agree" name="consent_to_contact" value="Yes" required><label for="agree">I agree to be contacted by PaidPace about this pilot. I understand this is an interest form, not a live account registration.</label></div>
+<button id="submit" type="submit">Request free early access →</button>
+</fieldset>
+<p id="feedback" role="status" aria-live="polite"></p>
+</form>
+<p class="note">Please don't submit customer names, invoice documents, bank details, or payment credentials. No subscriptions or payments are being taken.</p>
+</aside>
+</div></main>
+<footer>© 2026 PaidPace · Pre-launch concept. Pilot applications will open after the signup form has been connected and tested. Pricing and features may change before launch.</footer>
+<script>
+(()=>{const form=document.getElementById('waitlist');const key=form.querySelector('[name=access_key]').value;const active=/^[0-9a-f-]{30,}$/i.test(key);const fieldset=document.getElementById('inputs');const status=document.getElementById('status');if(!active)return;fieldset.disabled=false;status.textContent='Free founding pilot interest list is open. We will contact you about availability.';status.style.background='#e5f5eb';status.style.color='#0b655a';status.style.borderColor='#c5e7d8';const button=document.getElementById('submit');const feedback=document.getElementById('feedback');form.noValidate=false;form.addEventListener('submit',async(e)=>{e.preventDefault();if(!form.reportValidity())return;button.disabled=true;button.textContent='Submitting…';feedback.textContent='';try{const data=new FormData(form);const response=await fetch(form.action,{method:'POST',body:data,headers:{Accept:'application/json'}});const payload=await response.json();if(!response.ok||!payload.success)throw new Error(payload.message||'Unable to submit');form.reset();feedback.textContent='Thank you. Your pilot interest has been submitted.';feedback.style.color='#08796d';}catch(err){feedback.textContent='Submission failed. Please try again later.';feedback.style.color='#a34832';}finally{button.disabled=false;button.textContent='Request free early access →';}});})();
+</script>
+</body></html>
